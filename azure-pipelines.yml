@@ -50,5 +50,6 @@ steps:
         git commit -m "Deploy to GitHub Pages"
 
         # Push the build to the gh-pages branch
-        git push -u origin gh-pages --force
+        git push --set-upstream origin gh-pages --force
+
     displayName: 'Deploy to GitHub Pages'
