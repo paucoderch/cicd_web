@@ -42,7 +42,7 @@ steps:
         git init
 
         # Set up GitHub authentication using the GITHUB_TOKEN secret
-        git remote add origin https://pcoderch:$(GITHUB_TOKEN)@github.com/pcoderch/cicd_web.git
+        git remote add origin https://pcoderch:$GITHUB_TOKEN@github.com/pcoderch/cicd_web.git
         git checkout -b gh-pages
 
         # Add and commit the built web app files
