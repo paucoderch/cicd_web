@@ -32,8 +32,8 @@ steps:
       targetType: 'inline'
       script: |
         # Set Git user information for the commit
-        git config --local user.name "paucoderch"
-        git config --local user.email "pau.coderch@clearpeaks.com"
+        git config --global user.name "paucoderch"
+        git config --global user.email "pau.coderch@clearpeaks.com"
 
         # Navigate to the web build folder
         cd build/web
