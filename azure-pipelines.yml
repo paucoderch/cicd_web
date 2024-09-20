@@ -19,7 +19,7 @@ steps:
   - task: FlutterCommand@0
     displayName: 'Flutter Command'
     inputs:
-      projectDirectory: app
+      projectDirectory: cicd_web
       arguments: 'config --enable-web'
 
 
