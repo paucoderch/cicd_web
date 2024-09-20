@@ -19,14 +19,14 @@ steps:
   - task: FlutterCommand@0
     displayName: 'Flutter Command'
     inputs:
-      projectDirectory: cicd_web
+      projectDirectory: paucoderch/cicd_web
       arguments: 'config --enable-web'
 
 
   - task: FlutterCommand@0
     displayName: 'flutter run build web'
     inputs:
-      projectDirectory: cicd_web #{here put your source code folder}
+      projectDirectory: paucoderch/cicd_web #{here put your source code folder}
       arguments: 'build web'
 
   # Step 5: Deploy to GitHub Pages
