@@ -27,12 +27,11 @@ steps:
     inputs:
       arguments: 'build web'
 
-  # Step 5: Deploy to GitHub Pages
   - task: Bash@3
     inputs:
       targetType: 'inline'
       script: |
-        export PATH=$(FlutterPath)/bin:$PATH
+        # Set Git user information for the commit
         git config user.name "pcoderch"
         git config user.email "pau.coderch@clearpeaks.com"
 
@@ -41,6 +40,8 @@ steps:
 
         # Initialize a new Git repository
         git init
+
+        # Set up GitHub authentication using the GITHUB_TOKEN secret
         git remote add origin https://pcoderch:$(GITHUB_TOKEN)@github.com/pcoderch/cicd_web.git
         git checkout -b gh-pages
 
