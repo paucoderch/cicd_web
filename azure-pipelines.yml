@@ -13,36 +13,21 @@ steps:
       versionSpec: '3.x'
       addToPath: true
 
-  # Step 2: Install Flutter SDK
-  - task: Bash@3
+  - task: FlutterInstall@0
+    displayName: 'Flutter Install'
+  
+  - task: FlutterCommand@0
+    displayName: 'Flutter Command'
     inputs:
-      targetType: 'inline'
-      script: |
-        sudo apt-get update
-        sudo apt-get install -y git curl unzip xz-utils
-        git clone https://github.com/flutter/flutter.git -b stable --depth 1
-        echo "##vso[task.setvariable variable=FlutterPath]$(PWD)/flutter"
-        export PATH=$(FlutterPath)/bin:$PATH
-        flutter/bin/flutter doctor
-    displayName: 'Install Flutter SDK'
+      projectDirectory: app
+      arguments: 'config --enable-web'
 
-  # Step 3: Install Flutter dependencies
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
-        export PATH=$(FlutterPath)/bin:$PATH
-        flutter pub get
-    displayName: 'Install Flutter dependencies'
 
-  # Step 4: Build the Flutter web project
-  - task: Bash@3
+  - task: FlutterCommand@0
+    displayName: 'flutter run build web'
     inputs:
-      targetType: 'inline'
-      script: |
-        export PATH=$(FlutterPath)/bin:$PATH
-        flutter build web --release
-    displayName: 'Build Flutter Web'
+      projectDirectory: cicd_web #{here put your source code folder}
+      arguments: 'build web'
 
   # Step 5: Deploy to GitHub Pages
   - task: Bash@3
