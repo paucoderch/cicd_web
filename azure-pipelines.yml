@@ -32,7 +32,7 @@ steps:
       targetType: 'inline'
       script: |
         # Set Git user information for the commit
-        git config user.name "pcoderch"
+        git config user.name "paucoderch"
         git config user.email "pau.coderch@clearpeaks.com"
 
         # Navigate to the web build folder
@@ -42,7 +42,7 @@ steps:
         git init
 
         # Set up GitHub authentication using the GITHUB_TOKEN secret
-        git remote add origin https://pcoderch:$GITHUB_TOKEN@github.com/pcoderch/cicd_web.git
+        git remote add origin https://paucoderch:$GITHUB_TOKEN@github.com/paucoderch/cicd_web.git
         git checkout -b gh-pages
 
         # Add and commit the built web app files
