@@ -7,11 +7,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  # Step 1: Install Python (optional, if needed for Python dependencies)
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.x'
-      addToPath: true
 
   - task: FlutterInstall@0
     displayName: 'Flutter Install'
@@ -29,7 +24,7 @@ steps:
 
   - task: vercel-deployment-task@1
     inputs:
-      vercelProjectId: prj_65elMB5iDZ9CyrxzjSNwocP1zyte
-      vercelOrgId: bNF0eApoMVopLiExErs2kW1Q
-      vercelToken: $(VERCEL_ACCESS_TOKEN)
+      vercelProjectId: 'prj_65elMB5iDZ9CyrxzjSNwocP1zyte'
+      vercelOrgId: 'bNF0eApoMVopLiExErs2kW1Q'
+      vercelToken: $(VERCEL)
       production: true
