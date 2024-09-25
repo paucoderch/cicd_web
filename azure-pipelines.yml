@@ -26,5 +26,5 @@ steps:
     inputs:
       vercelProjectId: 'prj_65elMB5iDZ9CyrxzjSNwocP1zyte'
       vercelOrgId: 'bNF0eApoMVopLiExErs2kW1Q'
-      vercelToken: $(VERCEL)
+      vercelToken: 'KDXob5kMsrOBe0awwBfvEnZQ'
       production: true
