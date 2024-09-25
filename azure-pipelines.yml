@@ -27,29 +27,9 @@ steps:
     inputs:
       arguments: 'build web'
 
-  - task: Bash@3
+  - task: vercel-deployment-task@1
     inputs:
-      targetType: 'inline'
-      script: |
-        # Set Git user information for the commit
-        git config --global user.name "paucoderch"
-        git config --global user.email "pau.coderch@clearpeaks.com"
-
-        # Navigate to the web build folder
-        cd build/web
-
-        # Initialize a new Git repository
-        git init
-
-        # Set up GitHub authentication using the GITHUB_TOKEN secret
-        git remote add origin https://paucoderch:$GITHUB_TOKEN@github.com/paucoderch/cicd_web.git
-        git checkout -b gh-pages
-
-        # Add and commit the built web app files
-        git add .
-        git commit -m "Deploy to GitHub Pages"
-
-        # Push the build to the gh-pages branch
-        git push --set-upstream origin gh-pages --force
-
-    displayName: 'Deploy to GitHub Pages'
+      vercelProjectId: prj_65elMB5iDZ9CyrxzjSNwocP1zyte
+      vercelOrgId: bNF0eApoMVopLiExErs2kW1Q
+      vercelToken: $(VERCEL_ACCESS_TOKEN)
+      production: true
